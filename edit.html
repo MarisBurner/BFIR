@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
+    <title>BFIR Editor</title>
+    <script src="BFIR.js"></script>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            background-color: #222222;
+            font-size: 3.5vh;
+            font-family: mono;
+        }
+
+        p {
+            background: linear-gradient(90deg,#553355,#00000000);
+            margin: 0px;
+            color: #ffffff;
+            font-size: 1.25rem;
+            padding: 0.25em;
+        }
+
+        button {
+            margin: 0px;
+            padding: 0.5em;
+            border: none;
+            margin-left: 1em;
+            font-size: inherit;
+            border-radius: 0.5rem;
+            color: #ffffff;
+            background-color: #553355;
+        }
+
+        textarea {
+            outline: none;
+            box-shadow: 0px 0.25em 0px #11111155;
+            border: none;
+            font-size: inherit;
+            font-family: inherit;
+            width: calc(100% - 2.5em);
+            padding: 0.25em;
+            margin: 1em;
+            height: 8em;
+            background-color: #333333;
+            color: #ffffff;
+            resize: none;
+            text-wrap: nowrap;
+            border-radius: 0.5rem;
+        }
+
+        textarea#out {
+            background-color: #332233;
+        }
+    </style>
+</head>
+<body>
+    <p>BFIR Editor</p>
+    <textarea id="code" spellcheck="false">malloc a 12
+pushRef a
+push$ Hello_World!
+exec setString
+pushRef a
+exec sendRef</textarea><br/>
+    <button onclick="parseCode()">Parse</button><button onclick="copyText(document.getElementById('out'));">Copy Output</button><br/>
+    <textarea id="out" spellcheck="false"></textarea>
+    <script>
+        function parseCode(){
+            document.getElementById("out").value = compileBFIR(document.getElementById("code").value);
+        }
+      
+        function copyText(elm){
+            elm.select();
+            elm.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand("copy");
+            alert("Copied Brainfuck Code!");
+        }
+    </script>
+</body>
+</html>
