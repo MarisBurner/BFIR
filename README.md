@@ -10,6 +10,7 @@ Its really simple to write in. Every line is a new action. Spaces seperate each 
 Most things take from the program stack so you can push references and values for certain functions.
 
 ### Base operations
+- inline [brainfuck code]
 - exec [function]
 - malloc [name] (size: default 1)
 - push# [number]
