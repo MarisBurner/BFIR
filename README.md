@@ -6,7 +6,7 @@ BFIR is a web based transpiler that is similar to an ASM and designed to be used
 - for fun
 - why not?
 
-Its really simple to write in. Every line is a new operation. Spaces seperate each operation, to write spaces within strings though you use _, to use _ normally you should write \ before it, and \\\\ if you want to put a single \ without effecting anything.
+Its really simple to write in. Every line is a new action. Spaces seperate each operation, to write spaces within strings though you use _, to use _ normally you should write \ before it, and \\\\ if you want to put a single \ without effecting anything.
 Most things take from the program stack so you can push references and values for certain functions.
 
 ### Base operations
