@@ -14,7 +14,7 @@ Most things take from the program stack so you can push references and values fo
 - malloc [name] (size: default 1)
 - push# [number]
 - push$ [string]
-- pushRef [variable name]
+- pushRef [variable name] (index)
 - CLEAR
 - move [variable a] [index] [variable b] [index]
 - moveAdd \<same as move>
