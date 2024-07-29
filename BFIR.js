@@ -86,6 +86,11 @@ function compileBFIR(code){
         let a = args.pop();
         return lib.fromTo(acc,a).doAllRef(a,".").fromTo(a,acc).done();
     });
+    data.funcs.read = ((args,lib,data)=>{
+        let acc = lib.buildRef("acc",data);
+        let a = args.pop();
+        return lib.fromTo(acc,a).doAllRef(a,",").fromTo(a,acc).done();
+    });
     data.funcs.setString = ((args,lib,data)=>{
         let acc = lib.buildRef("acc",data);
         let str = args.pop();
@@ -129,6 +134,9 @@ function compileBFIR(code){
         let accRef = BFIRlib.buildRef("acc",data);
         for(let ln of tks){
             switch(ln[0]){
+                case("inline"):
+                    ret.push(ln[1]);
+                    break;
                 case("malloc"):
                     data.memPos[ln[1]] = data.memptr;
                     data.memSize[ln[1]] = Number(ln[2]??1);
