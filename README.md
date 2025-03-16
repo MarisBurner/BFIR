@@ -27,3 +27,4 @@ Most things take from the program stack so you can push references and values fo
 - dec [variable name] (index)
 - while [variable name] (index)
 - next [variable name] (index)
+- repeat [variable name] (index)
