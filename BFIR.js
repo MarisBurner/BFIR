@@ -149,7 +149,7 @@ function compileBFIR(code){
                     prstack.push(String(ln[1]));
                     break;
                 case("push#"):
-                    prstack.push(Number(ln[1]));
+                    prstack.push(Math.floor(Number(ln[1])));
                     break;
                 case("exec"):
                     if(!data.funcs[ln[1]]) throw `exec: Cannot Execute '${ln[1]}'`;
