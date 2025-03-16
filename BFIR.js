@@ -206,6 +206,10 @@ function compileBFIR(code){
                     break;
                 case("next"):
                     aref = BFIRlib.buildRef(ln[1],data,ln[2]);
+                    ret.push(BFIRlib.doAt(aref,"-]").done());
+                    break;
+                case("repeat"):
+                    aref = BFIRlib.buildRef(ln[1],data,ln[2]);
                     ret.push(BFIRlib.doAt(aref,"]").done());
                     break;
                 default:
